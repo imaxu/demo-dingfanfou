@@ -7,8 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 db_mode = 'mysql+pymysql'
 db_user = 'root'
-db_pass = 'ABc@#61^$&@3*(#2Ce>X'
-db_host = '192.168.0.20'
+db_pass = 'ZNNXDKdUIrKmVAYU3TZg4Z4ofL5ckwZs'
+db_host = '47.105.38.57'
 db_port = '3306'
 db_name = 'dingfandb'
 
