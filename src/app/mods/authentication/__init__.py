@@ -2,6 +2,6 @@
 
 from flask import Blueprint
 
-auth = Blueprint('auth', __name__)
+authentication = Blueprint('authentication', __name__)
 
 from . import views

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>盈加 · 饭</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/static/build/css/custom.css" rel="stylesheet">
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form action="/login" method="POST">
+              <h1>登录盈加·饭</h1>
+              <div>
+                <input type="text" name="login_name" class="form-control" placeholder="登录账号" required="" />
+              </div>
+              <div>
+                <input type="password" name="login_pwd" class="form-control" placeholder="登录密码" required="" />
+              </div>
+              {% if access_data  and access_data.return_code > 0 %}
+              <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong>登录拒绝!</strong> {{ access_data.return_msg }}。
+              </div>
+              {% endif %}
+              <div>
+                <button class="btn btn-default submit" type="submit">安全登录</button>
+                <a class="reset_pass" href="#">忘记密码?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">还没有账号？
+                  <a href="#signup" class="to_register"> 注册一个 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 盈加 · 饭!</h1>
+                  <p>基于开源的 Gentelella Alela! 模板。</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>注册账号</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="登录账号" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="/activity/detail">提交</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">已经有账号了 ?
+                  <a href="#signin" class="to_register"> 现在登录 </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                    <h1><i class="fa fa-paw"></i> 盈加 · 饭!</h1>
+                    <p>基于开源的 Gentelella Alela! 模板。</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

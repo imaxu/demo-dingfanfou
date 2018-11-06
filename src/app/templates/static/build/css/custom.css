@@ -2210,7 +2210,7 @@ legend {
     padding-right: 45px
 }
 .form-group {
-    margin-bottom: 10px
+    margin-bottom: 15px
 }
 .validate {
     margin-top: 10px
@@ -3483,7 +3483,7 @@ form:after {
     padding: 25px 0 0;
     position: relative;
     text-align: center;
-    text-shadow: 0 1px 0 #fff;
+    /*text-shadow: 0 1px 0 #fff; */
     min-width: 280px
 }
 .login_content a,
@@ -4066,6 +4066,9 @@ ul.verticle_bars li {
 }
 .progress.vertical.progress_wide {
     width: 35px
+}
+.alert{
+    padding:5px;
 }
 .alert-success {
     color: #ffffff;
