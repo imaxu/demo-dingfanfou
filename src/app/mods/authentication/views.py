@@ -43,7 +43,7 @@ def login():
 
         user_session_data = {
             "id":user.id,
-            "user_name":user.user_name
+            "user_real_name":user.user_real_name
         }
         session["user_session_data"] = user_session_data
         return "<script>location.href='/activity/detail';</script>"

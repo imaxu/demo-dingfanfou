@@ -22,6 +22,7 @@ def create_app():
 
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['DEBUG'] = True
+    app.config['SECRET_KEY'] = 'ekkZMBkYkCxQSuQNTYPqKraYJ6Ztboo6'
 
     # 数据库配置及初始化
     app.config['SQLALCHEMY_DATABASE_URI'] = \
