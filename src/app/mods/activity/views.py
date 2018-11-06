@@ -5,8 +5,8 @@ from flask import Flask, render_template,session
 from . import activity
 
 
-@activity.route('/activity/detail')
-def get_detail():
+@activity.route('/activity/detail/<int:activity_id>')
+def get_detail(activity_id=None):
     view_data = {
         "title":"",
         "current_user":session["user_session_data"],
