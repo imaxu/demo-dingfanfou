@@ -5,6 +5,7 @@ from flask import Flask, render_template,request,session
 from . import authentication
 from ...models.user_model import User
 
+@authentication.route('/')
 @authentication.route('/login',methods=["POST","GET"])
 def login():
     if request.method == "GET":
@@ -46,4 +47,5 @@ def login():
             "user_real_name":user.user_real_name
         }
         session["user_session_data"] = user_session_data
+        session.permanent = True
         return "<script>location.href='/dashboard/index';</script>"

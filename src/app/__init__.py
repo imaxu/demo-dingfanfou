@@ -3,6 +3,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+from datetime import timedelta
+
 ''' databse setting  '''
 
 db_mode = 'mysql+pymysql'
@@ -22,7 +24,10 @@ def create_app():
 
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['DEBUG'] = True
-    app.config['SECRET_KEY'] = 'ekkZMBkYkCxQSuQNTYPqKraYJ6Ztboo6'
+
+    #配置 session
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
+    app.config['SECRET_KEY'] = "iUuUnRvtznaNBrFtRtFxCkvGn8YmknVC"
 
     # 数据库配置及初始化
     app.config['SQLALCHEMY_DATABASE_URI'] = \
