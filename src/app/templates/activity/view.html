@@ -69,13 +69,16 @@
                 <div>
                   <label>请选择一项你想吃的菜品：</label>
                 </div>
-                {% for m in view_data.menu_items %}
+                {% for m in view_data.page.menu_items %}
                 <div class="radio form-group">
                   <label><input type="radio" class="flat" name="menus" >
                     <span>&nbsp;&nbsp;{{ m }}</span>
                   </label>
                 </div>
-                {% endfor %}                     
+                {% endfor %} 
+                <div>
+                  <button class="btn btn-success btn-md">提交表单</button>
+                </div>                    
               </div>
 
               <div>

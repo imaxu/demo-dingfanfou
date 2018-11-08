@@ -36,11 +36,11 @@ def create_app():
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)    
     
-    from .mods.activity import activity as activity_blueprint
-    app.register_blueprint(activity_blueprint)
-
     from .mods.authentication import authentication as authentication_blueprint
     app.register_blueprint(authentication_blueprint)
+
+    from .mods.activity import activity as activity_blueprint
+    app.register_blueprint(activity_blueprint)
 
     from .mods.dashboard import dashboard as dashboard_blueprint
     app.register_blueprint(dashboard_blueprint)

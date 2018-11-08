@@ -1,7 +1,7 @@
 # coding=utf-8
 
 
-from flask import Flask, render_template,request,session
+from flask import Flask, render_template,request,session,redirect
 from . import authentication
 from ...models.user_model import User
 
@@ -49,3 +49,8 @@ def login():
         session["user_session_data"] = user_session_data
         session.permanent = True
         return "<script>location.href='/dashboard/index';</script>"
+
+@authentication.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/login')
