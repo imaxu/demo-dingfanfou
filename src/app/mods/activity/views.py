@@ -21,8 +21,21 @@ def get_detail(activity_id=None,activity_date=None):
 @activity.route('/activity/list/<string:activity_type>')
 @activity.route('/activity/list')
 def get_list(activity_type=None):
+
+    mapping = {
+        "lunch":{
+            "name":"午餐",
+            "query":None
+        }
+    }
+
+    
     ViewHolder["page"] = { 
-        "title":"详情"
+        "title":mapping[activity_type]["name"],
+        "lunch":{
+            "total":50,
+            "items":[]
+        }
     }
     return render_template('activity/list.html' , view_data = ViewHolder)
 
