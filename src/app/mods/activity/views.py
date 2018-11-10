@@ -1,10 +1,10 @@
 # coding=utf-8
 
 
-from flask import Flask, render_template,session,g
+from flask import Flask,session,g
 from . import activity
 from ..authentication import require_login_session
-from ...mods import ViewHolder
+from ...mods import ViewHolder,render_temp
 
 @activity.route('/activity/detail/<int:activity_id>')
 @activity.route('/activity/detail/<string:activity_date>')
@@ -14,7 +14,7 @@ def get_detail(activity_id=None,activity_date=None):
         "title":"主面板",
         "menu_items":["红烧肉盖饭","鱼香肉丝盖饭","西红烧炒鸡蛋盖饭","扬州炒饭"]
     }
-    return render_template('activity/view.html' , view_data = ViewHolder)
+    return render_temp('activity/view.html' , view_data = ViewHolder)
 
 
 @require_login_session
@@ -28,8 +28,6 @@ def get_list(activity_type=None):
             "query":None
         }
     }
-
-    
     ViewHolder["page"] = { 
         "title":mapping[activity_type]["name"],
         "lunch":{
@@ -37,9 +35,17 @@ def get_list(activity_type=None):
             "items":[]
         }
     }
-    return render_template('activity/list.html' , view_data = ViewHolder)
+    return render_temp('activity/list.html' , view_data = ViewHolder)
+
 
 @require_login_session
 @activity.route('/activity/create/<string:activity_type>')
 def create(activity_type=None):
-    return "create_%s" % activity_type
+    ViewHolder["page"] = { 
+        "title":"发布午餐"
+        "lunch":{
+            "total":50,
+            "items":[]
+        }
+    }
+    return render_temp('activity/create.html')
