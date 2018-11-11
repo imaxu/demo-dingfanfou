@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-            <h3>Form Elements</h3>
+            <h3>创建活动</h3>
             </div>
 
             <div class="title_right">
@@ -25,16 +25,16 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                    <h2>Form Design <small>different form elements</small></h2>
+                    <h2>{{ view_data.page.title }}<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
+                            <li><a href="#">设置1</a>
                             </li>
-                            <li><a href="#">Settings 2</a>
+                            <li><a href="#">设置2</a>
                             </li>
                         </ul>
                         </li>
@@ -46,53 +46,62 @@
                     <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                        </div>
-                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                        </div>
-                        <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                        </div>
-                        </div>
-                        <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject">主题 <span class="required">*</span>
                             </label>
-                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                <input type="radio" name="gender" value="female"> Female
-                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="subject" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="provider">商家 <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="provider" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
                         </div>
                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                            <div class="control-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="menu_tags" type="text" class="tags form-control" value="" />
+                                    <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
+                                </div>
+                            </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">最多可选项<span class="required">*</span></label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="control-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="expired_time">结束时间<span class="required">*</span></label>
+                                <div class='col-sm-6'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='expired_time'>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button class="btn btn-primary" type="button">Cancel</button>
-                            <button class="btn btn-primary" type="reset">Reset</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-right">
+                            <button class="btn btn-primary" type="reset">重置</button>
+                            <button type="submit" class="btn btn-success">发布</button>
                         </div>
                         </div>
 
@@ -106,4 +115,19 @@
 </div>
 <!-- /page content -->
 
+{% endblock %}
+
+{% block custom_script %}
+    <!-- jQuery Tags Input -->
+    <script src="/static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/static/vendors/moment/min/moment.min.js"></script>
+    <script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="/static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>    
+    <script>  
+    $('#myDatepicker3').datetimepicker({
+        format: 'HH:mm'
+    });   
+    </script>    
 {% endblock %}

@@ -1019,8 +1019,9 @@ if (typeof NProgress != 'undefined') {
 				  
 				if(typeof $.fn.tagsInput !== 'undefined'){	
 				 
-				$('#tags_1').tagsInput({
-				  width: 'auto'
+				$('#menu_tags').tagsInput({
+					width: 'auto',
+					defaultText:"添加菜名"
 				});
 				
 				}

@@ -42,7 +42,7 @@ def get_list(activity_type=None):
 @activity.route('/activity/create/<string:activity_type>')
 def create(activity_type=None):
     ViewHolder["page"] = { 
-        "title":"发布午餐"
+        "title":"发布午餐",
         "lunch":{
             "total":50,
             "items":[]
