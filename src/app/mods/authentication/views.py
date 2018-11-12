@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template,request,session,redirect
 from . import authentication
-from ...models.user_model import User
+from .service.login_service import LoginService
 
 @authentication.route('/')
 @authentication.route('/login',methods=["POST","GET"])
@@ -28,27 +28,23 @@ def login():
             return render_template('authentication/login.html',access_data = access_data)
 
         #验证登录信息
-        user = User.query.filter_by(user_name=user_name).first()
-        if not user:
-            access_data = {
-                "return_code":401,
-                "return_msg":"账户不正确或者不存在"
-            }
-            return render_template('authentication/login.html',access_data = access_data)
-        if user.user_password != user_password:
-            access_data = {
-                "return_code":402,
-                "return_msg":"账户密码不正确"
-            }
-            return render_template('authentication/login.html',access_data = access_data)                      
-
-        user_session_data = {
-            "id":user.id,
-            "user_real_name":user.user_real_name
+        login = LoginService()
+        check_result = login.check_login_info(user_name,user_password)
+        access_data = {
+            "return_code":check_result[0],
+            "return_msg":check_result[1]
         }
-        session["user_session_data"] = user_session_data
-        session.permanent = True
-        return "<script>location.href='/dashboard/index';</script>"
+        
+        if check_result[0] != 0:
+            return render_template('authentication/login.html',access_data = access_data)
+        else:
+            user_session_data = {
+                "id":check_result[2],
+                "user_real_name":check_result[3]
+            }
+            session["user_session_data"] = user_session_data
+            session.permanent = True
+            return "<script>location.href='/dashboard/index';</script>"
 
 @authentication.route('/logout')
 def logout():
