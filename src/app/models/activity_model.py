@@ -1,9 +1,10 @@
 # coding=utf-8
 
 from .. import db
+from .base_model import BaseModel
 from . import get_date
 
-class Activity(db.Model):
+class Activity(BaseModel):
 
     __tablename__ = 'activity'
 
@@ -16,7 +17,7 @@ class Activity(db.Model):
     expired_time = db.Column(db.DateTime,default=get_date)
     last_update_tiime = db.Column(db.DateTime,default=get_date)
     state = db.Column(db.Integer)
-    comments = db.relationship('ActivityComment', backref='activity', lazy=True)
+    #comments = db.relationship('ActivityComment', backref='activity', lazy=True)
 
     def __repr__(self):
         return '<Activity %r >' % self.id

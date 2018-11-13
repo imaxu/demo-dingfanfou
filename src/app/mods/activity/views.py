@@ -16,13 +16,15 @@ def get_detail(activity_id=None,activity_date=None):
     if activity_id:
         lunch = LunchService()
         activity = lunch.get_by_primary(activity_id)
+        print(activity)
         if activity[0] == 0:
-            options = ["红烧肉盖饭","鱼香肉丝盖饭","西红烧炒鸡蛋盖饭","扬州炒饭"]
-
-    ViewHolder["page"] = { 
-        "title":"主面板",
-        "menu_items":options
-    }
+            ViewHolder["page"] = { 
+                "title":"详情",
+                "menu_items":activity[2].get("options").split(","),
+                "activity_name":activity[2].get("activity_name"),
+                "create_time":activity[2].get("create_time"),
+                "max_selection":activity[2].get("max_selection")
+            }
     return render_temp('activity/view.html' , view_data = ViewHolder)
 
 

@@ -23,9 +23,9 @@ class LunchService(object):
 
             :param primary_key:  primary key of the model
         """
-        activity = Activity.query.filter_by(id=primary_key)
+        activity = Activity.query.filter_by(id=primary_key).first()
+        activity.__dict__.pop("_sa_instance_state",None)
         if not activity:
             return (20010,"活动不存在")
-
         return (0,"",activity.__dict__)
         
